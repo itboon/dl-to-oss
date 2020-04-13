@@ -19,13 +19,14 @@ jobs:
         OSS_DL_URL: http://gosspublic.alicdn.com/ossutil/1.6.10/ossutil64
         OSS_DEST: oss://nas-ci/
       run: |
+        mkdir -p download
         cat dl.list | while read url
         do
-          curl -sSl $url -o ${url##*/} 
+          curl -sSL $url -o ${url##*/} 
         done
         mkdir -p ${HOME}/bin
         aliOSS="${HOME}/bin/ossutil"
         curl -o $aliOSS -L $OSS_DL_URL
         chmod a+rx $aliOSS
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
-        $aliOSS cp -rf ./ $OSS_DEST
+        $aliOSS cp -rf download $OSS_DEST
