@@ -22,7 +22,7 @@ jobs:
         mkdir -p download
         cat dl.list | while read url
         do
-          curl -sSL $url -o ${url##*/} 
+          curl -L $url -o ${url##*/} 
         done
         mkdir -p ${HOME}/bin
         aliOSS="${HOME}/bin/ossutil"
@@ -30,3 +30,4 @@ jobs:
         chmod a+rx $aliOSS
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         $aliOSS cp -rf download/ $OSS_DEST
+        ls -alh; ls -alh download
