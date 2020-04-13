@@ -29,4 +29,4 @@ jobs:
         curl -o $aliOSS -L $OSS_DL_URL
         chmod a+rx $aliOSS
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
-        $aliOSS cp -rf download $OSS_DEST
+        $aliOSS cp -rf download/ $OSS_DEST
