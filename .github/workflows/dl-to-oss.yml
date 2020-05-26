@@ -27,6 +27,7 @@ jobs:
         URL_FILE: download.list
         OSS_SITE: https://nas-ci.oss-cn-hongkong.aliyuncs.com/
       run: |
+        set -ex
         mkdir -p download
         cat $URL_FILE | while read url
         do
