@@ -31,7 +31,9 @@ jobs:
         mkdir -p download
         cat $URL_FILE | while read url
         do
-          [[ $url =~ ^(http|ftp) ]] && curl -sSL $url -o download/${url##*/}
+          if [[ $url =~ ^(http|ftp) ]]; then
+            curl -sSL $url -o download/${url##*/}
+          fi
         done
         mkdir -p ${HOME}/bin
         aliOSS="${HOME}/bin/ossutil"
