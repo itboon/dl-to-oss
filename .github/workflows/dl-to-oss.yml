@@ -38,9 +38,9 @@ jobs:
         curl -o $aliOSS -L $OSS_DL_URL
         chmod a+rx $aliOSS
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
-        $aliOSS cp -rf download/ ${OSS_DES}dl/
+        $aliOSS cp -rf download/ ${OSS_DEST}dl/
         rm -f list
         ls download | while read item; do
           echo "${OSS_SITE}/dl/${item}" >> list
         done
-        $aliOSS cp -f list ${OSS_DES}list
+        $aliOSS cp -f list ${OSS_DEST}list
