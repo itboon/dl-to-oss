@@ -41,6 +41,6 @@ jobs:
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         $aliOSS cp -rf download/ ${OSS_DEST}dl/
         ls download | while read item; do
-          echo "${OSS_SITE}/dl/${item}" >> list
+          echo "${OSS_SITE}dl/${item}" >> list
         done
         $aliOSS cp -f list ${OSS_DEST}list.txt
