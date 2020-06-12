@@ -6,7 +6,7 @@ on:
       - master
     # file paths to consider in the event. Optional; defaults to all.
     paths:
-      - 'download.list'
+      - 'download.json'
 
 jobs:
   download-to-oss:
@@ -24,24 +24,22 @@ jobs:
         OSS_EP: oss-cn-hongkong.aliyuncs.com
         OSS_DL_URL: http://gosspublic.alicdn.com/ossutil/1.6.10/ossutil64
         OSS_DEST: oss://nas-ci/
-        URL_FILE: download.list
+        URL_FILE: download.json
         OSS_SITE: https://nas-ci.oss-cn-hongkong.aliyuncs.com/
       run: |
         set -x
         mkdir -p download
-        cat $URL_FILE | while read url
-        do
-          if [[ $url =~ ^(http|ftp) ]]; then
-            curl -sSL $url -o download/${url##*/}
-          fi
+        num=$(jq '. | length' $URL_FILE)
+        for ((i=0; i<$num; i++)); do 
+          curl -sSL $(jq -r .[${i}].url $URL_FILE) -o download/$(jq -r .[${i}].file $URL_FILE) 
         done
+        
         mkdir -p ${HOME}/bin
         aliOSS="${HOME}/bin/ossutil"
         curl -o $aliOSS -L $OSS_DL_URL
         chmod a+rx $aliOSS
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         $aliOSS cp -rf download/ ${OSS_DEST}dl/
-        rm -f list
         ls download | while read item; do
           echo "${OSS_SITE}/dl/${item}" >> list
         done
