@@ -57,5 +57,5 @@ jobs:
 
         $aliOSS cp -rf download/ ${OSS_BUCKET}/dl/
         $aliOSS ls ${OSS_BUCKET}/ -s | grep '^oss' \
-          | sed 's%oss://nas-ci/%${OSS_SITE}%g' > list.txt
-        $aliOSS cp -f list.txt ${OSS_BUCKET}/list.txt
+          | sed "s%oss://nas-ci/%${OSS_SITE}%g" > map.txt
+        $aliOSS cp -f map.txt ${OSS_BUCKET}/map.txt
