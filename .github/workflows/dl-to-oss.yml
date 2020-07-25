@@ -43,9 +43,9 @@ jobs:
         mkdir -p download
         num=$($YQ r $URL_FILE --length downloads)
         for ((i=0; i<$num; i++)); do
-          this_url=$($YQ -r $URL_FILE downloads[${i}].url)
-          this_file=$($YQ -r $URL_FILE downloads[${i}].file)
-          this_update=$($YQ -r $URL_FILE downloads[${i}].update)
+          this_url=$($YQ r $URL_FILE downloads[${i}].url)
+          this_file=$($YQ r $URL_FILE downloads[${i}].file)
+          this_update=$($YQ r $URL_FILE downloads[${i}].update)
           $aliOSS stat ${OSS_BUCKET}/dl/${this_file} &> /dev/null
           # Download if the file exists on oss or need to update.
           if (( $? != 0 )) || (( $this_update == yes )); then
