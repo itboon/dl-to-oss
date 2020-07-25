@@ -42,6 +42,7 @@ jobs:
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         mkdir -p download
         num=$($YQ r $URL_FILE --length downloads)
+        set +e
         for ((i=0; i<$num; i++)); do
           this_url=$($YQ r $URL_FILE downloads[${i}].url)
           this_file=$($YQ r $URL_FILE downloads[${i}].file)
@@ -52,6 +53,7 @@ jobs:
             curl -sSL ${this_url} -o donwload/${this_file}
           fi
         done
+        set -e
 
         $aliOSS cp -rf download/ ${OSS_DEST}/dl/
         ls download | while read item; do
