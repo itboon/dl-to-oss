@@ -40,7 +40,7 @@ jobs:
         
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         mkdir -p download
-        num=$($YQ r docker-compose.yml --length downloads)
+        num=$($YQ r $URL_FILE --length downloads)
         for ((i=0; i<$num; i++)); do
           this_url=$($YQ -r $URL_FILE downloads.${i}.url)
           this_file=$($YQ -r $URL_FILE downloads.${i}.file)
