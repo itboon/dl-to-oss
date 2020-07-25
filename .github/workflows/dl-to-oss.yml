@@ -57,6 +57,5 @@ jobs:
 
         $aliOSS cp -rf download/ ${OSS_BUCKET}/dl/
         list_replace="sed 's%${OSS_BUCKET}%${OSS_SITE}%g'"
-        $aliOSS ls ${OSS_BUCKET}/ -s | grep '^oss' \
-          | $list_replace > list.txt
+        $aliOSS ls ${OSS_BUCKET}/ -s | grep '^oss' | $list_replace > list.txt
         $aliOSS cp -f list.txt ${OSS_BUCKET}/list.txt
