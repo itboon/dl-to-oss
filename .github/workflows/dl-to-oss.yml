@@ -50,7 +50,7 @@ jobs:
           $aliOSS stat ${OSS_BUCKET}/dl/${this_file} &> /dev/null
           # Download if the file exists on oss or need to update.
           if (( $? != 0 )) || (( $this_update == yes )); then
-            curl -sSL ${this_url} -o donwload/${this_file}
+            curl -sSL ${this_url} -o download/${this_file}
           fi
         done
         set -e
