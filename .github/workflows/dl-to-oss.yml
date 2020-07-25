@@ -6,7 +6,7 @@ on:
       - master
     # file paths to consider in the event. Optional; defaults to all.
     paths:
-      - 'download.json'
+      - 'download.yml'
 
 jobs:
   download-to-oss:
@@ -22,25 +22,39 @@ jobs:
         OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
         OSS_KEY_SE: ${{ secrets.OSS_KEY_SECRET }}
         OSS_EP: oss-cn-hongkong.aliyuncs.com
-        OSS_DL_URL: http://gosspublic.alicdn.com/ossutil/1.6.10/ossutil64
-        OSS_DEST: oss://nas-ci/
-        URL_FILE: download.json
+        DL_OSS_URL: http://gosspublic.alicdn.com/ossutil/1.6.10/ossutil64
+        DL_YQ_URL: https://github.com/mikefarah/yq/releases/download/3.3.2/yq_linux_amd64
+        OSS_BUCKET: "oss://nas-ci"
+        URL_FILE: download.yml
         OSS_SITE: https://nas-ci.oss-cn-hongkong.aliyuncs.com/
       run: |
         set -x
-        mkdir -p download
-        num=$(jq '. | length' $URL_FILE)
-        for ((i=0; i<$num; i++)); do 
-          curl -sSL $(jq -r .[${i}].url $URL_FILE) -o download/$(jq -r .[${i}].file $URL_FILE) 
-        done
         
         mkdir -p ${HOME}/bin
         aliOSS="${HOME}/bin/ossutil"
-        curl -o $aliOSS -L $OSS_DL_URL
+        YQ="${HOME}/bin/yq"
+        curl -o $aliOSS -L $DL_OSS_URL
+        curl -o $YQ -L $DL_YQ_URL
         chmod a+rx $aliOSS
+        chmod a+rx $YQ
+        
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
-        $aliOSS cp -rf download/ ${OSS_DEST}dl/
+        mkdir -p download
+        num=$($YQ r docker-compose.yml --length downloads)
+        for ((i=0; i<$num; i++)); do
+          this_url=$($YQ -r $URL_FILE downloads.${i}.url)
+          this_file=$($YQ -r $URL_FILE downloads.${i}.file)
+          this_update=$($YQ -r $URL_FILE downloads.${i}.update)
+          $aliOSS stat ${OSS_BUCKET}/dl/${this_file} &> /dev/null
+          # Download if the file exists on oss or need to update.
+          if (( $? != 0 )) || (( $this_update == yes )); then
+            curl -sSL ${this_url} -o donwload/${this_file}
+          fi
+        done
+
+        $aliOSS cp -rf download/ ${OSS_DEST}/dl/
         ls download | while read item; do
           echo "${OSS_SITE}dl/${item}" >> list
         done
-        $aliOSS cp -f list ${OSS_DEST}list.txt
+        $aliOSS cp -f list ${OSS_BUCKET}/list.txt
+        $aliOSS ls ${OSS_BUCKET}/ -s | grep '^oss' | sed 's%${OSS_BUCKET}%${OSS_SITE}%'
