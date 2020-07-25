@@ -7,6 +7,7 @@ on:
     # file paths to consider in the event. Optional; defaults to all.
     paths:
       - 'download.yml'
+      - '.github/workflows/*'
 
 jobs:
   download-to-oss:
@@ -40,19 +41,21 @@ jobs:
         
         $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
         mkdir -p download
-        num=$($YQ r docker-compose.yml --length downloads)
+        num=$($YQ r $URL_FILE --length downloads)
+        set +e
         for ((i=0; i<$num; i++)); do
-          this_url=$($YQ -r $URL_FILE downloads.${i}.url)
-          this_file=$($YQ -r $URL_FILE downloads.${i}.file)
-          this_update=$($YQ -r $URL_FILE downloads.${i}.update)
+          this_url=$($YQ r $URL_FILE downloads[${i}].url)
+          this_file=$($YQ r $URL_FILE downloads[${i}].file)
+          this_update=$($YQ r $URL_FILE downloads[${i}].update)
           $aliOSS stat ${OSS_BUCKET}/dl/${this_file} &> /dev/null
           # Download if the file exists on oss or need to update.
           if (( $? != 0 )) || (( $this_update == yes )); then
             curl -sSL ${this_url} -o donwload/${this_file}
           fi
         done
+        set -e
 
-        $aliOSS cp -rf download/ ${OSS_DEST}/dl/
+        $aliOSS cp -rf download/ ${OSS_BUCKET}/dl/
         $aliOSS ls ${OSS_BUCKET}/ -s | grep '^oss' \
           | sed 's%${OSS_BUCKET}%${OSS_SITE}%' > list.txt
         $aliOSS cp -f list.txt ${OSS_BUCKET}/list.txt
