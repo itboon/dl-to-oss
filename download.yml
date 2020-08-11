@@ -7,7 +7,7 @@ downloads:
   - url: "https://github.com/coredns/coredns/releases/download/v1.7.0/coredns_1.7.0_linux_amd64.tgz"
     file: "coredns-linux.tgz"
   - url: "https://github.com/coredns/coredns/releases/download/v1.7.0/coredns_1.7.0_windows_amd64.tgz"
-    fiel: "coredns-windows.tgz"
+    file: "coredns-windows.tgz"
   - url: "https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt"
     file: "gfwlist.txt"
   - url: "https://download.mobatek.net/2022020030522248/MobaXterm_Portable_v20.2.zip"
