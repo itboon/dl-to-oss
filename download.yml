@@ -23,4 +23,6 @@ downloads:
     file: "xtrabackup-24.deb"
   - url: "https://www.heidisql.com/downloads/releases/HeidiSQL_11.0_64_Portable.zip"
     file: "HeidiSQL.zip"
+  - url: "https://www.7-zip.org/a/7z1900-x64.exe"
+    file: "7-zip.exe"
     
