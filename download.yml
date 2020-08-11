@@ -19,4 +19,6 @@ downloads:
     file: "xtrabackup-24.rpm"
   - url: "https://www.percona.com/downloads/Percona-XtraBackup-2.4/Percona-XtraBackup-2.4.20/binary/debian/buster/x86_64/percona-xtrabackup-24_2.4.20-1.buster_amd64.deb"
     file: "xtrabackup-24.deb"
+  - url: "https://www.heidisql.com/downloads/releases/HeidiSQL_11.0_64_Portable.zip"
+    file: "HeidiSQL.zip"
     
