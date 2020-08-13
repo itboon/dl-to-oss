@@ -25,4 +25,6 @@ downloads:
     file: "HeidiSQL.zip"
   - url: "https://www.7-zip.org/a/7z1900-x64.exe"
     file: "7-zip.exe"
+  - url: "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.8.9/npp.7.8.9.Installer.x64.exe"
+    file: "notepad-pp.exe"
     
