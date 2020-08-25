@@ -27,4 +27,6 @@ downloads:
     file: "7-zip.exe"
   - url: "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.8.9/npp.7.8.9.Installer.x64.exe"
     file: "notepad-pp.exe"
+  - url: "https://github.com/grafana/loki/releases/download/v1.6.1/promtail-linux-amd64.zip"
+    file: "promtail.zip"
     
