@@ -29,4 +29,6 @@ downloads:
     file: "notepad-pp.exe"
   - url: "https://github.com/grafana/loki/releases/download/v1.6.1/promtail-linux-amd64.zip"
     file: "promtail.zip"
+  - url: "https://github.com/grafana/loki/releases/download/v1.6.1/promtail-windows-amd64.exe.zip"
+    file: "promtail-windows-amd64.exe.zip"
     
