@@ -31,4 +31,6 @@ downloads:
     file: "promtail.zip"
   - url: "https://github.com/grafana/loki/releases/download/v1.6.1/promtail-windows-amd64.exe.zip"
     file: "promtail-windows-amd64.exe.zip"
+  - url: "https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/PowerShell-7.0.3-win-x64.msi"
+    file: "PowerShell-7.0.3-win-x64.msi"
     
