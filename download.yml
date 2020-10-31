@@ -38,3 +38,5 @@ downloads:
     file: "windows_exporter-0.14.0-amd64.msi"
   - url: "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.9/npp.7.9.portable.x64.zip"
     file: "npp-portable.zip"
+  - url: "https://download.anydesk.com/AnyDesk.exe"
+    file: "AnyDesk.exe"
