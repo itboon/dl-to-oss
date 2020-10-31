@@ -31,7 +31,6 @@ downloads:
     file: "promtail-linux-amd64.zip"
   - url: "https://github.com/grafana/loki/releases/download/v2.0.0/promtail-windows-amd64.exe.zip"
     file: "promtail-windows-amd64.exe.zip"
-    update: yes
   - url: "https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/PowerShell-7.0.3-win-x64.msi"
     file: "PowerShell-7.0.3-win-x64.msi"
   - url: "https://github.com/prometheus-community/windows_exporter/releases/download/v0.14.0/windows_exporter-0.14.0-amd64.msi"
