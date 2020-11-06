@@ -39,3 +39,5 @@ downloads:
     file: "npp-portable.zip"
   - url: "https://download.anydesk.com/AnyDesk.exe"
     file: "AnyDesk.exe"
+  - url: "https://apache.website-solution.net/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-9.0.39.tar.gz"
+    file: "apache-tomcat-9.0.39.tar.gz"
