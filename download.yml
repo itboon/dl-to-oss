@@ -41,3 +41,5 @@ downloads:
     file: "AnyDesk.exe"
   - url: "https://apache.website-solution.net/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-9.0.39.tar.gz"
     file: "apache-tomcat-9.0.39.tar.gz"
+  - url: "https://www.python.org/ftp/python/3.9.1/python-3.9.1-embed-amd64.zip"
+    file: "python-3.9.1-embed-amd64.zip"
