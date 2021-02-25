@@ -43,3 +43,5 @@ downloads:
     file: "apache-tomcat-9.0.39.tar.gz"
   - url: "https://www.python.org/ftp/python/3.9.1/python-3.9.1-embed-amd64.zip"
     file: "python-3.9.1-embed-amd64.zip"
+  - url: "https://dl.dell.com/FOLDER03884128M/2/iDRAC-with-Lifecycle-Controller_Firmware_2091K_WN64_2.40.40.40_A00.EXE?uid=e13f6a57-ef71-433a-376e-c99a53c728d9&fn=iDRAC-with-Lifecycle-Controller_Firmware_2091K_WN64_2.40.40.40_A00.EXE"
+    file: "r730_iDRAC_2.40.40.40_A00.EXE"
