@@ -18,7 +18,6 @@ aliOSS="${HOME}/bin/ossutil"
 YQ="${HOME}/bin/yq"
 mkdir -p ${HOME}/bin
 
-URL_FILE="download.yml"
 DL_DIR="/tmp/download"
 mkdir -p ${DL_DIR}
 rm -rf ${DL_DIR}/*
@@ -62,7 +61,7 @@ main() {
   do_setup_env
 
   $aliOSS config -e $OSS_EP -i $OSS_KEY_ID -k $OSS_KEY_SE
-  do_yq_dl $URL_FILE
+  do_yq_dl "oss-${DL_NAMESAPCE}.yml"
   
   $aliOSS cp -rf ${DL_DIR}/ ${OSS_HOME}/
   do_oss_map
