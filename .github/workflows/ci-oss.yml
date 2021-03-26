@@ -1,0 +1,26 @@
+name: download to aliyun oss
+
+on:
+  push:
+    branches:
+      - master
+    # file paths to consider in the event. Optional; defaults to all.
+    paths:
+      - 'oss-a.yml'
+      #- '.github/workflows/*'
+
+jobs:
+  download-to-oss:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: copy files to oss
+      shell: bash
+      env:
+        OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
+        OSS_KEY_SE: ${{ secrets.OSS_KEY_SECRET }}
+      run: |
+        docker-compose up -d
