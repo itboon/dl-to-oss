@@ -11,4 +11,4 @@ RUN set -ex \
   ; mkdir -p /workdir
 
 WORKDIR /workdir
-CMD ["bash", "/main.sh"]
+CMD ["/bin/bash", "/main.sh"]
