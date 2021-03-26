@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -ex
 
 # OSS env
 OSS_EP="oss-cn-hongkong.aliyuncs.com"
@@ -35,14 +35,14 @@ do_setup_env() {
 do_yq_dl() {
   # 第一个参数是 yq 需要解析的 yaml 文件
   local yml=$1
-  DL_NAMESAPCE=$($YQ r $yml namespace)
+  DL_NAMESAPCE=$($YQ e '.namespace' $yml)
   OSS_HOME="${OSS_BUCKET}/ci/${DL_NAMESAPCE}"
-  local num=$($YQ r $yml --length downloads)
+  local num=$($YQ e '.downloads | length' $yml)
   set +e
   for ((i=0; i<$num; i++)); do
-    local this_url=$($YQ r $yml downloads[${i}].url)
-    local this_file=$($YQ r $yml downloads[${i}].file)
-    local this_update=$($YQ r $yml downloads[${i}].update)
+    local this_url=$($YQ e downloads[${i}].url $yml)
+    local this_file=$($YQ e downloads[${i}].file $yml)
+    local this_update=$($YQ e downloads[${i}].update $yml)
     $aliOSS stat ${OSS_HOME}/${this_file} &> /dev/null
     # Download if the file exists on oss or need to update.
     if (( $? != 0 )) || (( $this_update == yes )); then
