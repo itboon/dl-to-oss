@@ -23,4 +23,4 @@ jobs:
         OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
         OSS_KEY_SE: ${{ secrets.OSS_KEY_SECRET }}
       run: |
-        docker-compose up -d
+        docker-compose up
