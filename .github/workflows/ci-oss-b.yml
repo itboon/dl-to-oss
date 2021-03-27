@@ -1,4 +1,4 @@
-name: download to aliyun oss
+name: ci oss b
 # 目录 b 用于临时下载。
 
 on:

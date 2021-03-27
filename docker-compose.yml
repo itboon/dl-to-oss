@@ -6,4 +6,5 @@ services:
     environment:
       OSS_KEY_ID: "${OSS_KEY_ID}"
       OSS_KEY_SE: "${OSS_KEY_SE}"
+      DL_NAMESAPCE: "${DL_NAMESAPCE}"
 

@@ -1,4 +1,4 @@
-name: download to aliyun oss
+name: ci oss a
 # 目录 a 长期保留。
 
 on:
