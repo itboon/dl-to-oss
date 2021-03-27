@@ -3,4 +3,4 @@ downloads:
     file: "gfwlist.txt"
     #update: yes
   - url: "https://www.7-zip.org/a/7z1900-x64.exe"
-    file: "7-zip.exe"
+    file: "7z1900-x64.exe"

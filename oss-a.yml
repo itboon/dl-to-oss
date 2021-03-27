@@ -1,0 +1,26 @@
+downloads:
+  - url: "https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt"
+    file: "gfwlist.txt"
+    update: yes
+  - url: "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN"
+    file: "firefox.exe"
+  #- url: "https://github.com/coredns/coredns/releases/download/v1.7.1/coredns_1.7.1_linux_amd64.tgz"
+  #  file: "coredns_1.7.1_linux_amd64.tgz"
+  #- url: "https://github.com/coredns/coredns/releases/download/v1.7.1/coredns_1.7.1_windows_amd64.tgz"
+  #  file: "coredns_1.7.1_windows_amd64.tgz"
+  #- url: "https://download.mobatek.net/2022020030522248/MobaXterm_Portable_v20.2.zip"
+  #  file: "mobaxterm.zip"
+  - url: "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-Linux-x86_64"
+    file: "docker-compose.linux"
+    #update: yes
+  - url: "https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.15.1/Clash.for.Windows-0.15.1-win.7z"
+    file: "Clash.for.Windows-0.15.1-win.7z"
+  - url: "https://www.7-zip.org/a/7z1900-x64.exe"
+    file: "7z1900-x64.exe"
+  - url: "https://github.com/grafana/loki/releases/download/v2.2.0/promtail-linux-amd64.zip"
+    file: "promtail-linux-amd64.zip"
+  - url: "https://github.com/grafana/loki/releases/download/v2.2.0/promtail-windows-amd64.exe.zip"
+    file: "promtail-windows-amd64.exe.zip"
+  - url: "https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi"
+    file: "windows_exporter-0.16.0-amd64.msi"
+
