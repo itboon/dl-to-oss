@@ -1,6 +1,6 @@
 downloads:
   - url: "https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt"
     file: "gfwlist.txt"
-    # update: yes
+    #update: yes
   - url: "https://www.7-zip.org/a/7z1900-x64.exe"
     file: "7-zip.exe"

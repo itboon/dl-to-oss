@@ -38,9 +38,9 @@ do_yq_dl() {
   local num=$($YQ e '.downloads | length' $yml)
   set +e
   for ((i=0; i<$num; i++)); do
-    local this_url=$($YQ e downloads[${i}].url $yml)
-    local this_file=$($YQ e downloads[${i}].file $yml)
-    local this_update=$($YQ e downloads[${i}].update $yml)
+    local this_url=$($YQ e .downloads[${i}].url $yml)
+    local this_file=$($YQ e .downloads[${i}].file $yml)
+    local this_update=$($YQ e .downloads[${i}].update $yml)
     $aliOSS stat ${OSS_HOME}/${this_file} &> /dev/null
     # Download if the file exists on oss or need to update.
     if (( $? != 0 )) || (( $this_update == yes )); then
