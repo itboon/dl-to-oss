@@ -7,7 +7,8 @@ OSS_EP="oss-cn-hongkong.aliyuncs.com"
 OSS_BUCKET="oss://nas-ci"
 OSS_SITE="ttps://nas-ci.oss-cn-hongkong.aliyuncs.com/"
 
-DL_NAMESAPCE="a"
+# 如果没有传入 DL_NAMESAPCE 变量，则默认为 a
+DL_NAMESAPCE=${DL_NAMESAPCE:-a}
 OSS_HOME="${OSS_BUCKET}/ci/${DL_NAMESAPCE}"
 
 # tools
@@ -34,8 +35,6 @@ do_setup_env() {
 do_yq_dl() {
   # 第一个参数是 yq 需要解析的 yaml 文件
   local yml=$1
-  DL_NAMESAPCE=$($YQ e '.namespace' $yml)
-  OSS_HOME="${OSS_BUCKET}/ci/${DL_NAMESAPCE}"
   local num=$($YQ e '.downloads | length' $yml)
   set +e
   for ((i=0; i<$num; i++)); do
