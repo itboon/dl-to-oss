@@ -23,4 +23,5 @@ downloads:
     file: "promtail-windows-amd64.exe.zip"
   - url: "https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi"
     file: "windows_exporter-0.16.0-amd64.msi"
-
+  - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    file: "kubernetes-archive-keyring.gpg"
