@@ -25,3 +25,6 @@ downloads:
     file: "windows_exporter-0.16.0-amd64.msi"
   - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
     file: "kubernetes-archive-keyring.gpg"
+  - url: "https://get.docker.com"
+    file: "get-docker.sh"
+    update: yes
