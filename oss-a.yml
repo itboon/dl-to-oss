@@ -28,3 +28,6 @@ downloads:
   - url: "https://get.docker.com"
     file: "get-docker.sh"
     update: yes
+  - url: "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+    file: "GeoLiteCity.dat.gz"
+    update: yes
