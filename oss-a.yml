@@ -30,4 +30,6 @@ downloads:
     update: yes
   - url: "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
     file: "GeoLiteCity.dat.gz"
-    update: yes
+    #update: yes
+  - url: "https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip"
+    file: "OpenSSH-Win64-8100.zip"
