@@ -33,3 +33,5 @@ downloads:
     #update: yes
   - url: "https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip"
     file: "OpenSSH-Win64-8100.zip"
+  - url: "https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl"
+    file: "kubectl-v1.22"
