@@ -6,3 +6,5 @@ downloads:
     file: "7z1900-x64.exe"
   - url: "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf"
     file: "cn-zones.conf"
+  - url: "https://raw.githubusercontent.com/jsamr/bootiso/master/bootiso"
+    file: "bootiso"
