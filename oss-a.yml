@@ -43,5 +43,5 @@ downloads:
     file: "zip-allCountries.zip"
   - url: "https://github.com/mikefarah/yq/releases/download/v4.16.2/yq_linux_amd64"
     file: "yq_linux_amd64"
-  - url: "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-beta/microsoft-edge-beta_114.0.1823.18-1_amd64.deb"
-    file: "microsoft-edge-beta_114.0.1823.18-1_amd64.deb"
+  - url: "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_113.0.1774.42-1_amd64.deb?brand=M102"
+    file: "microsoft-edge-stable_113.0.1774.42-1_amd64.deb"
