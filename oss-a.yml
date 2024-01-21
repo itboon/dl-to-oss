@@ -45,3 +45,7 @@ downloads:
     file: "yq_linux_amd64"
   - url: "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_113.0.1774.42-1_amd64.deb?brand=M102"
     file: "microsoft-edge-stable_113.0.1774.42-1_amd64.deb"
+  - url: "https://dist.apache.org/repos/dist/release/rocketmq/4.9.7/rocketmq-all-4.9.7-bin-release.zip"
+    file: "rocketmq-all-4.9.7-bin-release.zip"
+  - url: "https://dist.apache.org/repos/dist/release/rocketmq/5.1.4/rocketmq-all-5.1.4-bin-release.zip"
+    file: "rocketmq-all-5.1.4-bin-release.zip"
